@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+<script src="./node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+<script>
+
+     const {reactive,effect,readonly,shallowReactive,shallowReadonly} = VueReactivity
+
+     let state1 = reactive({name:"lsy",age:12,arr:[1,2,3]})
+     console.log(state1.arr)
+     let state2 = readonly({name:"李四",age:45}) // 属性不可修改
+     state2.name = "123"  // 提示警告修改失败
+     console.log(state2)
+
+
+          let state3 = shallowReactive({name:"lsy",arr:[1,2,3]})  // 只代理一层arr不会被代理 arr不是响应式
+
+          console.log("state3",state3)
+          console.log("state3.arr",state3.arr)
+
+          let state4 = shallowReadonly({name:"123",arr:[1,2,3]})  // 浅仅读 arr可修改  arr.push(100)
+
+    //  effect(() =>{  //副作用函数  默认先执行一次 如果依赖的数据发生变化 会再次执行
+    //     console.log("effect执行了")
+    //         app.innerHTML = state1.name + state1.age
+    //  })
+
+    //        setTimeout( () =>{
+    //         state1.name = "张三"
+    //        },1000)
+     
+</script>

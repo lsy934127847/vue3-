@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+let obj = {name:"lsy",stu:{
+    age:123
+}}
+let p = new Proxy(obj,{
+     get(target,key){
+         console.log(target)
+         console.log(key)
+        console.log("取值")  
+          return target[key]
+     },
+     set(target,key,value){
+        target[key] = value
+        console.log("设置值")
+        return true
+     }
+})
+console.log(p)
+p.name = "456"
+console.log(p.stu.age)
+
+</script>

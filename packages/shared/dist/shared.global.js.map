@@ -1,0 +1,1 @@
+{"version":3,"file":"shared.global.js","sources":["../src/index.ts"],"sourcesContent":["\r\nexport const VueShared = \"VueShared\""],"names":[],"mappings":";;;OACa,SAAS,GAAG;;;;;;;;;;;;"}
